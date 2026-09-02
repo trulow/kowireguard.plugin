@@ -188,7 +188,7 @@ cat /etc/resolv.conf > /tmp/dns.before
 ### 5. Restart KOReader
 
 Fully exit and relaunch — plugins are only scanned at startup. The entry
-appears under **Network → kowireguard (v1.0.1)**.
+appears under **Network → kowireguard (v1.0.3)**.
 
 ### 6. Add a tunnel
 
@@ -316,7 +316,7 @@ Runtime files stay on tmpfs deliberately:
 - **Diagnostics** — `wg show`, routing table, firewall rule state, DNS,
   plugin log, `wireguard-go` output, redacted config, force teardown, clear
   log
-- **About kowireguard (v1.0.1)**
+- **About kowireguard (v1.0.3)**
 
 Gesture and profile bindings are registered with Dispatcher: `kowireguard
 connect`, `disconnect`, `toggle`, `status`.
@@ -488,6 +488,19 @@ sleep/wake, external process kill, teardown after simulated crash, USB
 connect while running, and uninstall.
 
 ---
+
+## Known limitation: menu refresh
+
+`touchmenu_instance` does not exist in KOReader v2026.07.2's `touchmenu.lua`,
+so the in-place `updateItems()` calls in the menu code are no-ops on that
+version. The status line updates **when you open the menu, not while it is
+open** — `text_func` is re-evaluated on every open, so backing out and
+reopening always shows current state. Connect, disconnect and settings changes
+all take effect immediately; only the live redraw is inert.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ## Credits
 
