@@ -83,15 +83,15 @@ Two notes on these recipes:
 ## Install
 
 ```sh
-scp -P 2222 kowireguard-2.0.1.zip root@KINDLE:/mnt/us/
+scp -P 2222 kowireguard-2.0.2.zip root@KINDLE:/mnt/us/
 ```
 
 On the Kindle:
 
 ```sh
 cd /mnt/us/koreader/plugins
-unzip -o /mnt/us/kowireguard-2.0.1.zip
-rm /mnt/us/kowireguard-2.0.1.zip
+unzip -o /mnt/us/kowireguard-2.0.2.zip
+rm /mnt/us/kowireguard-2.0.2.zip
 
 scp -P 2222 wg wireguard-go \
   root@KINDLE:/mnt/us/koreader/plugins/kowireguard.koplugin/bin/
@@ -106,7 +106,7 @@ bin/wg --version
 bin/wireguard-go --version
 ```
 
-Restart KOReader. The entry appears under **Network → kowireguard (v2.0.1)**.
+Restart KOReader. The entry appears under **Network → kowireguard (v2.0.2)**.
 
 Then **Import config…**, or drop a `.conf` into
 `/mnt/us/koreader/kowireguard/configs/`, and **Connect**.
